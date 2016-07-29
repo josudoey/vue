@@ -1,0 +1,35 @@
+{
+  "name": "vue-example",
+  "version": "1.0.0",
+  "description": "joey's example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josudoey/vue-example.git"
+  },
+  "author": "joey fang <wuminfajoy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josudoey/vue-example/issues"
+  },
+  "homepage": "https://github.com/josudoey/vue-example#readme",
+  "dependencies": {
+    "vue": "^1.0.26"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "pretty-hrtime": "^1.0.2",
+    "require-dir": "^0.3.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vue-hot-reload-api": "^2.0.5",
+    "vueify": "^8.7.0",
+    "watchify": "^3.7.0"
+  }
+}
