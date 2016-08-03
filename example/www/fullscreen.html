@@ -1,0 +1,19 @@
+<html>
+
+<head>
+</head>
+
+<body>
+  <div id="main">
+    <button @click="$refs.screen.show = true">open</button>
+    <fullscreen v-ref:screen width="600px">
+      {{msg}}
+      <button @click="$refs.screen.show = false">close</button>
+    </fullscreen>
+    </span>
+  </div>
+  <script src="./fullscreen.js"></script>
+</body>
+
+</html>
+

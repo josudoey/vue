@@ -1,8 +1,7 @@
 //ref https://vuejs.org/examples/modal.html
 var Vue = require("vue");
-var base = require("./template.vue");
 var vue = Vue.extend({
-  template: base.template,
+  template: require("./template.html"),
   props: {
     "width": {
       type: String
@@ -15,14 +14,14 @@ var vue = Vue.extend({
     }
   },
   watch: {
-    width: function(val, old) {
+    width: function (val, old) {
       this.css.width = val;
     },
-    height: function(val, old) {
+    height: function (val, old) {
       this.css.height = val;
     }
   },
-  data: function() {
+  data: function () {
     return {
       header: {
         marginTop: 0,
@@ -55,7 +54,7 @@ var vue = Vue.extend({
       }
     };
   },
-  created: function() {
+  created: function () {
     if (this.width) {
       this.css.width = this.width;
     }
