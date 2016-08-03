@@ -24,13 +24,10 @@ module.exports = {
   browserify: {
     // Enable source maps
     debug: true,
+    src: [src + '/js/*.js'],
+    dest: dest,
     // A separate bundle will be generated for each
     // bundle config in the list below
-    bundleConfigs: [{
-      entries: src + '/app/main.js',
-      dest: dest,
-      outputName: 'main.js'
-    }],
     extensions: ['.js']
   }
 };

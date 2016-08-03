@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/josudoey/vue-example#readme",
   "dependencies": {
-    "stringify": "^5.1.0",
     "vue": "^1.0.26",
     "vue-tables": "^1.4.64"
   },
@@ -27,8 +26,10 @@
     "gulp": "^3.9.1",
     "gulp-notify": "^2.2.0",
     "gulp-util": "^3.0.7",
+    "map-stream": "0.0.6",
     "pretty-hrtime": "^1.0.2",
     "require-dir": "^0.3.0",
+    "stringify": "^5.1.0",
     "vinyl-source-stream": "^1.1.0",
     "vue-hot-reload-api": "^2.0.5",
     "vueify": "^8.7.0",

@@ -6,34 +6,47 @@
    See browserify.bundleConfigs in gulp/config.js
 */
 
+var map = require('map-stream');
 var browserify = require('browserify');
 var vueify = require('vueify')
 var watchify = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
 var gulp = require('gulp');
+var path = require('path');
 var handleErrors = require('../util/handleErrors');
 var source = require('vinyl-source-stream');
+var stringify = require('stringify');
 var config = require('../config').browserify;
 
 gulp.task('browserify', function (callback) {
-
-  var bundleQueue = config.bundleConfigs.length;
-
-  var browserifyThis = function (bundleConfig) {
+  var bundleQueue = 0;
+  var browserifyThis = function (file) {
+    bundleQueue++;
+    var filepath = file.path;
+    var bundleConfig = {
+      entries: filepath,
+      outputName: path.basename(filepath),
+      dest: config.dest
+    }
 
     var bundler = browserify({
-      // Required watchify args
-      cache: {},
-      packageCache: {},
-      fullPaths: false,
-      // Specify the entry point of your app
-      entries: bundleConfig.entries,
-      // Add file extentions to make optional in your requires
-      extensions: config.extensions,
-      // Enable source maps!
-      debug: config.debug,
-      basedir: config.basedir
-    }).transform(vueify);
+        // Required watchify args
+        cache: {},
+        packageCache: {},
+        fullPaths: false,
+        // Specify the entry point of your app
+        entries: bundleConfig.entries,
+        // Add file extentions to make optional in your requires
+        extensions: config.extensions,
+        // Enable source maps!
+        debug: config.debug,
+        basedir: config.basedir
+      }).transform(stringify, {
+        appliesTo: {
+          includeExtensions: ['.html']
+        }
+      })
+      .transform(vueify);
 
     var bundle = function () {
       // Log when bundling starts
@@ -72,11 +85,13 @@ gulp.task('browserify', function (callback) {
         }
       }
     };
-
     return bundle();
   };
 
   // Start bundling with Browserify for each bundleConfig specified
-  config.bundleConfigs.forEach(browserifyThis);
+  gulp.src(config.src, [{
+      buffer: false
+    }])
+    .pipe(map(browserifyThis));
 });
 
