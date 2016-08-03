@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/josudoey/vue-example#readme",
   "dependencies": {
-    "vue": "^1.0.26"
+    "stringify": "^5.1.0",
+    "vue": "^1.0.26",
+    "vue-tables": "^1.4.64"
   },
   "devDependencies": {
     "browser-sync": "^2.14.0",
