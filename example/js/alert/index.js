@@ -2,8 +2,8 @@ var Vue = require("vue");
 var Plug = {};
 Plug.install = function (Vue, opts) {
   opts = opts || {};
-  var id = opts.id || "alertVue";
-  var vue = $("#" + id);
+  var el = opts.el;
+  var vue = $(el);
   if (vue.length === 0) {
     vue = $('<div style="position: absolute; right: 0; margin-bottom: 0;"></div>');
     vue.prependTo("body");
