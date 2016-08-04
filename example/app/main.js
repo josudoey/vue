@@ -1,11 +1,21 @@
 var Vue = require("vue");
-Vue.component('hello', require("./hello"))
+var hello = require("./hello");
 
-var app = new Vue({
+var vue = new Vue({
   el: '#main',
+  components: {
+    "hello": hello
+  },
+  template: "<div><span>{{msg}}</span> <br /> <hello v-ref:joey>joey</hello> <br /> <hello v-ref:joey2></hello></div>",
   data: {
-    currentView: 'hello'
+    msg: "this is example"
+  },
+  ready: function() {
+    var self = this;
+    this.$refs.joey.text = "joey";
+    setTimeout(function() {
+      self.$refs.joey2.text = "joey2";
+    }, 3000);
   }
 });
-app.currentView = 'hello';
 
