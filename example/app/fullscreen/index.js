@@ -2,10 +2,27 @@
 var Vue = require("vue");
 var vue = Vue.extend({
   template: '<div v-show="show"><div v-bind:style="mask"><div v-bind:style="wrapper"><div v-bind:style="css"><div v-bind:style="header"><slot name="header"></slot></div><slot></slot></div></div></div></div>',
-  props: {},
+  props: {
+    "width": {
+      type: String
+    },
+    "height": {
+      type: String
+    },
+    "show": {
+      default: false
+    }
+  },
+  watch: {
+    width: function(val, old) {
+      this.css.width = val;
+    },
+    height: function(val, old) {
+      this.css.height = val;
+    }
+  },
   data: function() {
     return {
-      show: false,
       header: {
         marginTop: 0,
         color: "#42b983"
@@ -36,6 +53,14 @@ var vue = Vue.extend({
         fontFamily: "Helvetica, Arial, sans-serif"
       }
     };
+  },
+  created: function() {
+    if (this.width) {
+      this.css.width = this.width;
+    }
+    if (this.height) {
+      this.css.height = this.height;
+    }
   }
 });
 module.exports = vue;

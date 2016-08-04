@@ -8,7 +8,7 @@ var vue = new Vue({
     "hello": hello,
     "screen": fullscreen
   },
-  template: '<span><span>{{msg}}</span> <br /> <hello v-ref:joey>joey</hello> <br /> <hello v-ref:joey2>test</hello><br /><button @click="$refs.screen.show = true">open</button><screen v-ref:screen> this is screen <button @click="$refs.screen.show = false">close</button></screen></span>',
+  template: '<span><span>{{msg}}</span> <br /> <hello v-ref:joey>joey</hello> <br /> <hello v-ref:joey2>test</hello><br /><button @click="$refs.screen.show = true">open</button><screen v-ref:screen width="600px"> this is screen <button @click="$refs.screen.show = false">close</button></screen></span>',
   data: {
     msg: "this is example"
   },
