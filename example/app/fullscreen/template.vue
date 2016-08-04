@@ -1,0 +1,14 @@
+<template>
+  <div v-show="show">
+    <div v-bind:style="mask">
+        <div v-bind:style="wrapper">
+          <div v-bind:style="css">
+          <div v-bind:style="header">
+              <slot name="header"></slot>
+          </div>
+          <slot></slot>
+       </div>
+    </div>
+  </div>
+</div>
+</template>

@@ -1,7 +1,8 @@
 //ref https://vuejs.org/examples/modal.html
 var Vue = require("vue");
+var base = require("./template.vue");
 var vue = Vue.extend({
-  template: '<div v-show="show"><div v-bind:style="mask"><div v-bind:style="wrapper"><div v-bind:style="css"><div v-bind:style="header"><slot name="header"></slot></div><slot></slot></div></div></div></div>',
+  template: base.template,
   props: {
     "width": {
       type: String
