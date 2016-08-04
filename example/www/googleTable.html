@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="table" google-key="AIzaSyBUcqIP4oBnuAHHkv8chmuHmi86nZqPTy4" google-sheet-id="1OFU1I62L3TC65yb1fNnCkXym3BdhQUAsqYa8rzKRRoI">
+    <div style="width:80%;max-width:1000px;margin: auto;">
+      <div>
+        <select v-model="tableName" @change="show(tableName)">
+          <option v-for="item in tableList" v-bind:value="item.name">{{ item.name }}</option>
+        </select>
+      </div>
+      <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
+    </div>
+  </div>
+  <script src="./lib.js"></script>
+  <script src="./googleTable.js"></script>
+</body>
+
+</html>
+
