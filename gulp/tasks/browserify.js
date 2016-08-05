@@ -33,14 +33,13 @@ gulp.task('browserify', function (callback) {
       // Enable source maps!
       debug: config.debug,
       basedir: config.basedir
-    });
+    }).transform(vueify);
 
     var bundle = function () {
       // Log when bundling starts
       bundleLogger.start(bundleConfig.outputName);
 
       return bundler
-        .transform(vueify)
         .bundle()
         // Report compile errors
         .on('error', handleErrors)
