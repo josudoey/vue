@@ -1,0 +1,20 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <input type='file' webkitdirectory>
+
+  <div id="fs">
+    <div @dragover="onDragover" @dragend="onDragend" @drop="onDrop" style="background-color: #00ffff; width: 100px; height: 100px">
+      drop file or folder
+    </div>
+  </div>
+</body>
+
+<script src="./fs.js"></script>
+
+</html>
+
